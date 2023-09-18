@@ -1,0 +1,40 @@
+﻿<Window x:Class="Frontend.View.BoardListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodel="clr-namespace:Frontend.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:BoardListViewModel}"
+        mc:Ignorable="d"
+        Title="List of Boards" Height="450" Width="1000">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+    <Grid Margin="10" Background="#b3b3b3">
+
+        <StackPanel Orientation="Vertical" Background="#b3b3b3">
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Label Content="Boards list" HorizontalAlignment="Center" Foreground="Black" FontSize="16" FontWeight="Bold"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black">
+                <ListView Grid.Row="1" ItemsSource="{Binding Boards}" SelectedItem="{Binding Path=SelectedBoard, Mode=TwoWay}" Background="#b3b3b3" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="LavenderBlush" Margin="0,0,0,5">
+                                <StackPanel Orientation="Vertical" Background="#669999">
+                                    <TextBlock>
+                                    <Run Text="BoardId: " FontWeight="Bold" FontSize="16" Foreground="White"/>
+                                    <Run Text="{Binding ID}" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                    <Run Text="BoardName: " FontWeight="Bold" FontSize="16" Foreground="White"/>
+                                    <Run Text="{Binding Name}" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
+            <Button Content="Select Board" Click="Board_Select" Foreground="#FFFFFF" Background="#4D78B8" Margin="0 10" Padding="10 5"/>
+            <Button Content="Logout" Click="Logout_button" Foreground="#FFFFFF" Background="#FFC75C5C" Padding="10 5"/>
+        </StackPanel>
+    </Grid>
+    </ScrollViewer>
+</Window>

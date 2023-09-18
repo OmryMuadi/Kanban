@@ -1,0 +1,128 @@
+﻿<Window x:Class="Frontend.View.BoardView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:Frontend.ViewModel"
+        xmlns:local="clr-namespace:Frontend.View"
+        d:DataContext="{d:DesignInstance Type=viewmodel:BoardViewModel}"
+        mc:Ignorable="d"
+        Title="List of tasks" Height="450" Width="1000">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+    <Grid Background="#b3b3b3" Margin="10">
+        <StackPanel>
+                <Border BorderThickness="1" BorderBrush="Black">
+                    <Label Content="tasks list" HorizontalAlignment="Center" Foreground="Black" FontSize="16" FontWeight="Bold"/>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black">
+                <Label x:Name="label1" Content="Backlog list" HorizontalAlignment="Center" Foreground="#ff0000" FontSize="16" FontWeight="Bold"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black">
+                <ListView Grid.Row="1" Name="Backlog" ItemsSource="{Binding BacklogList}" Background="#b3b3b3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="LavenderBlush" Margin="0,0,0,5" Background="#85adad">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock>
+                                    <Run Text="TaskId: " FontWeight="Bold" FontSize="14"/>
+                                    <Run Text="{Binding TaskId}" FontSize="14" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="CreationTime: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding CreationTime}" FontSize="16" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="DueTime: " FontWeight="Bold" FontSize="14"/>
+                                    <Run Text="{Binding DueTime}" FontSize="14" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Title: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding Title}" FontSize="16" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Description: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding Description}" FontSize="16" FontWeight="Bold"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Label x:Name="label2" Content="In Progress list" HorizontalAlignment="Center" Foreground="#ffff00" FontSize="16" FontWeight="Bold"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black">
+                <ListView Grid.Row="1" Name="InProgress" ItemsSource="{Binding InProgressList}" Background="#b3b3b3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="LavenderBlush" Margin="0,0,0,5" Background="#85adad">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock>
+                                    <Run Text="TaskId: " FontWeight="Bold" FontSize="14"/>
+                                    <Run Text="{Binding TaskId}" FontSize="14" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="CreationTime: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding CreationTime}" FontSize="16" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="DueTime: " FontWeight="Bold" FontSize="14"/>
+                                    <Run Text="{Binding DueTime}" FontSize="14" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Title: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding Title}" FontSize="16" FontWeight="Bold" />
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Description: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding Description}" FontSize="16" FontWeight="Bold"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Label x:Name="label3" Content="Done list" HorizontalAlignment="Center" Foreground="#00ff00" FontSize="16" FontWeight="Bold"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black">
+                <ListView Grid.Row="1" Name="Done" ItemsSource="{Binding DoneList}" Background="#b3b3b3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="LavenderBlush" Margin="0,0,0,5" Background="#85adad">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock>
+                                    <Run Text="TaskId: " FontWeight="Bold" FontSize="14"/>
+                                    <Run Text="{Binding TaskId}" FontSize="14" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="CreationTime: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding CreationTime}" FontSize="16" FontWeight="Bold" />
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="DueTime: " FontWeight="Bold" FontSize="14"/>
+                                    <Run Text="{Binding DueTime}" FontSize="14" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Title: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding Title}" FontSize="16" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Description: " FontWeight="Bold" FontSize="16"/>
+                                    <Run Text="{Binding Description}" FontSize="16" FontWeight="Bold" />
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Border>
+
+            <Button Content="Back" Background="#4D78B8" Click="back_button"/>
+        </StackPanel>
+    </Grid>
+    </ScrollViewer>
+</Window>
+
